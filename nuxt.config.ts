@@ -20,6 +20,9 @@ export default defineNuxtConfig({
       emailB64: 'aGlAbWF0Y2hsZXNzbHVtaS5kZXY=',
     },
   },
+  nitro: {
+    preset: 'static',
+  },
   vite: {
     plugins: [tailwindcss()],
   },
