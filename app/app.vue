@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import faviconSvg from '~/assets/favicon.svg?raw'
-
 useSeoMeta({
   title: 'Luminaire',
   titleTemplate: '%s · matchlesslumi.dev',
@@ -25,11 +23,7 @@ useHead({
   link: [
     { rel: 'preconnect', href: 'https://api.github.com' },
     { rel: 'canonical', href: 'https://matchlesslumi.dev' },
-    {
-      rel: 'icon',
-      type: 'image/svg+xml',
-      href: `data:image/svg+xml,${encodeURIComponent(faviconSvg)}`,
-    },
+    { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
   ],
 })
 </script>
