@@ -1,5 +1,12 @@
-import sharp from 'sharp'
 import { mkdirSync } from 'fs'
+
+let sharp
+try {
+  sharp = (await import('sharp')).default
+} catch {
+  console.error('sharp not found — run: pnpm add -D sharp')
+  process.exit(1)
+}
 
 mkdirSync('public', { recursive: true })
 
