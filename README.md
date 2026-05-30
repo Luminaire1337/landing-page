@@ -1,53 +1,30 @@
 # matchlesslumi.dev
 
-Personal landing page for [matchlesslumi.dev](https://matchlesslumi.dev).
+Source code for [matchlesslumi.dev](https://matchlesslumi.dev).
 
-## Stack
+Built with Nuxt 4, Vue 3, and Tailwind CSS v4. JetBrains Mono throughout.
 
-| Tool                                       | Purpose                             |
-| ------------------------------------------ | ----------------------------------- |
-| [Nuxt 4](https://nuxt.com)                 | Framework (SSG / SSR)               |
-| [Vue 3](https://vuejs.org)                 | UI                                  |
-| [Tailwind CSS v4](https://tailwindcss.com) | Styling — CSS-first, no config file |
-| [@nuxt/fonts](https://fonts.nuxt.com)      | JetBrains Mono via Google Fonts     |
-| [pnpm](https://pnpm.io)                    | Package manager                     |
-
-## Getting started
+## Running locally
 
 ```bash
 pnpm install
-pnpm dev          # http://localhost:3000
+pnpm dev
 ```
 
-## Scripts
+Opens at `http://localhost:3000`.
+
+## Other scripts
 
 ```bash
 pnpm build        # production build
 pnpm generate     # static site generation
 pnpm preview      # preview production build
-pnpm lint         # ESLint check
 pnpm lint:fix     # ESLint auto-fix
-pnpm format       # Prettier format (writes in place)
+pnpm format       # Prettier (writes in place)
 ```
 
-## Project structure
+## How it works
 
-```
-app/
-  assets/css/main.css        # Tailwind import + @theme tokens + base reset
-  components/
-    AsciiBackground.vue      # Rotating 3D donut (Andy Sloane algorithm, rAF)
-    ProjectsSection.vue      # GitHub repos — lazy fetch on scroll into view
-  pages/
-    index.vue                # Hero + projects layout
-eslint.config.mjs            # ESLint flat config (wraps @nuxt/eslint + prettier)
-.prettierrc                  # Prettier config
-```
+The background is a rotating 3D ASCII donut — the classic Andy Sloane algorithm running on a 120×40 character grid, scaled via CSS transform to always fill the viewport.
 
-## Features
-
-- **ASCII donut background** — rotating 3D torus rendered in a `<pre>`, scaled to fill the viewport
-- **Lazy GitHub fetch** — projects section only calls the API when scrolled into view (IntersectionObserver)
-- **Skeleton loading** — pulse placeholders while repos load, then fade-in animation on arrival
-- **Language color dots** — official GitHub language colors per repo card
-- **Forks excluded** — only original work shown (up to 6 most recently pushed repos)
+The projects section lazy-loads repos from the GitHub API only once the user scrolls to it, so there's no unnecessary request on page load. While waiting, it shows skeleton cards that pulse, then fades the real cards in once the data arrives. Forks are filtered out, showing the 6 most recently pushed original repos.
