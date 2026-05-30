@@ -1,5 +1,11 @@
 <script setup lang="ts">
+const config = useRuntimeConfig()
 const projectsRef = ref<HTMLElement>()
+const emailHref = ref('')
+
+onMounted(() => {
+  emailHref.value = `mailto:${atob(config.public.emailB64)}`
+})
 
 function scrollToProjects() {
   projectsRef.value?.scrollIntoView({ behavior: 'smooth' })
@@ -28,7 +34,8 @@ function scrollToProjects() {
           >
           <span class="text-sky-300/20">·</span>
           <a
-            href="mailto:hi@matchlesslumi.dev"
+            v-if="emailHref"
+            :href="emailHref"
             class="hover:text-sky-200 transition-colors duration-200"
             >email</a
           >

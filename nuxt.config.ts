@@ -12,6 +12,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       githubUsername: 'Luminaire1337',
+      emailB64: 'aGlAbWF0Y2hsZXNzbHVtaS5kZXY=',
     },
   },
   vite: {
