@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__nuxt-remote__get-module",
+      "mcp__nuxt-remote__list-modules",
+      "Bash(pnpm add *)",
+      "Bash(pnpm approve-builds *)",
+      "Bash(pnpm postinstall *)",
+      "Bash(pnpm lint *)",
+      "Bash(pnpm format *)"
+    ]
+  }
+}
