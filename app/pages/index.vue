@@ -7,7 +7,7 @@ onMounted(() => {
   emailHref.value = `mailto:${atob(config.public.emailB64)}`
 })
 
-function scrollToProjects() {
+const scrollToProjects = () => {
   projectsRef.value?.scrollIntoView({ behavior: 'smooth' })
 }
 </script>

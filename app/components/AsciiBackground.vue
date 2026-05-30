@@ -12,19 +12,26 @@ let naturalH = 0
 const COLS = 120
 const ROWS = 40
 const CHARS = '.,-~:;=!*#$@'
+const CHARS_LEN = CHARS.length
+const TOTAL = COLS * ROWS
+const TWO_PI = Math.PI * 2
 
-function renderDonut() {
-  const z = new Float32Array(COLS * ROWS)
-  const b: string[] = new Array(COLS * ROWS).fill(' ')
+const z = new Float32Array(TOTAL)
+const b: string[] = new Array(TOTAL).fill(' ')
+
+const renderDonut = () => {
+  z.fill(0)
+  b.fill(' ')
+
   const sinA = Math.sin(A),
     cosA = Math.cos(A)
   const sinB = Math.sin(B),
     cosB = Math.cos(B)
 
-  for (let j = 0; j < Math.PI * 2; j += 0.07) {
+  for (let j = 0; j < TWO_PI; j += 0.07) {
     const sinJ = Math.sin(j),
       cosJ = Math.cos(j)
-    for (let i = 0; i < Math.PI * 2; i += 0.02) {
+    for (let i = 0; i < TWO_PI; i += 0.02) {
       const sinI = Math.sin(i),
         cosI = Math.cos(i)
       const h = cosJ + 2
@@ -34,14 +41,14 @@ function renderDonut() {
       const y = Math.floor(ROWS / 2 + 25 * D * (cosI * h * sinB + t * cosB))
       if (y >= 0 && y < ROWS && x >= 0 && x < COLS) {
         const idx = x + COLS * y
-        if (D > (z[idx] ?? 0)) {
+        if (D > z[idx]!) {
           z[idx] = D
           const lum =
             (sinJ * sinA - sinI * cosJ * cosA) * cosB -
             sinI * cosJ * sinA -
             sinJ * cosA -
             cosI * cosJ * sinB
-          b[idx] = CHARS[Math.max(0, Math.floor(8 * lum)) % CHARS.length]!
+          b[idx] = CHARS[Math.max(0, Math.floor(8 * lum)) % CHARS_LEN]!
         }
       }
     }
@@ -54,14 +61,14 @@ function renderDonut() {
   frame.value = out
 }
 
-function calcScale() {
+const calcScale = () => {
   if (!naturalW) return
   const sx = (window.innerWidth * 1.15) / naturalW
   const sy = (window.innerHeight * 1.15) / naturalH
   scaleFactor.value = Math.max(sx, sy)
 }
 
-function loop() {
+const loop = () => {
   A += 0.005
   B += 0.003
   renderDonut()
@@ -95,16 +102,8 @@ onUnmounted(() => {
   >
     <pre
       ref="preEl"
-      class="select-none whitespace-pre leading-[1.4]"
-      :style="{
-        fontFamily: '\'JetBrains Mono\', monospace',
-        fontSize: '14px',
-        color: '#7dd3fc',
-        opacity: 0.1,
-        transform: `scale(${scaleFactor})`,
-        transformOrigin: 'center',
-        willChange: 'transform',
-      }"
+      class="select-none whitespace-pre leading-[1.4] text-[14px] text-sky-300 opacity-10 origin-center will-change-transform"
+      :style="{ transform: `scale(${scaleFactor})` }"
       >{{ frame }}</pre
     >
   </div>
