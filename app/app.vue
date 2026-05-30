@@ -23,6 +23,7 @@ useSeoMeta({
 useHead({
   htmlAttrs: { lang: 'en' },
   link: [
+    { rel: 'preconnect', href: 'https://api.github.com' },
     { rel: 'canonical', href: 'https://matchlesslumi.dev' },
     {
       rel: 'icon',
