@@ -90,6 +90,7 @@ onUnmounted(() => {
 
 <template>
   <div
+    aria-hidden="true"
     class="fixed inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center"
   >
     <pre

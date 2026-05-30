@@ -69,7 +69,7 @@ const langColors: Record<string, string> = {
   <div ref="rootEl">
     <div class="mb-12 text-center">
       <h2 class="text-2xl font-semibold text-white tracking-tight">projects</h2>
-      <p class="text-sky-300/50 text-xs mt-1 tracking-[0.25em]">recent work · via github</p>
+      <p class="text-sky-300/70 text-xs mt-1 tracking-[0.25em]">recent work · via github</p>
     </div>
 
     <!-- skeleton (idle = not yet in view, pending = fetching) -->

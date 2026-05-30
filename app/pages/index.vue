@@ -43,7 +43,7 @@ function scrollToProjects() {
       </div>
 
       <button
-        class="absolute bottom-10 flex flex-col items-center gap-2 text-sky-300/50 hover:text-sky-300/80 transition-colors duration-300 cursor-pointer"
+        class="absolute bottom-10 flex flex-col items-center gap-2 text-sky-300/70 hover:text-sky-300/90 transition-colors duration-300 cursor-pointer"
         @click="scrollToProjects"
       >
         <span class="text-[10px] tracking-[0.4em] uppercase">scroll</span>
