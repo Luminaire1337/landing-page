@@ -20,7 +20,7 @@ function scrollToProjects() {
     <section class="relative z-10 flex min-h-screen flex-col items-center justify-center">
       <div class="text-center px-4">
         <p class="text-sky-300/60 text-xs tracking-widest mb-8">Michał Łuczyński</p>
-        <h1 class="text-7xl sm:text-9xl font-bold tracking-tight text-white">
+        <h1 class="text-[clamp(3rem,12vw,8rem)] font-bold tracking-tight text-white">
           Luminaire<span class="text-sky-300">.</span>
         </h1>
         <p class="text-sky-200/90 text-sm mt-6">software engineer</p>
