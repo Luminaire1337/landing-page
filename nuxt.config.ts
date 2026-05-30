@@ -5,6 +5,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   modules: ['@nuxt/fonts', '@nuxt/eslint'],
+  eslint: {
+    config: {
+      typescript: { strict: true },
+    },
+  },
   css: ['~/assets/css/main.css'],
   fonts: {
     families: [{ name: 'JetBrains Mono', provider: 'google' }],

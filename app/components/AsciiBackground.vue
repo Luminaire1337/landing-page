@@ -34,14 +34,14 @@ function renderDonut() {
       const y = Math.floor(ROWS / 2 + 25 * D * (cosI * h * sinB + t * cosB))
       if (y >= 0 && y < ROWS && x >= 0 && x < COLS) {
         const idx = x + COLS * y
-        if (D > z[idx]) {
+        if (D > (z[idx] ?? 0)) {
           z[idx] = D
           const lum =
             (sinJ * sinA - sinI * cosJ * cosA) * cosB -
             sinI * cosJ * sinA -
             sinJ * cosA -
             cosI * cosJ * sinB
-          b[idx] = CHARS[Math.max(0, Math.floor(8 * lum)) % CHARS.length]
+          b[idx] = CHARS[Math.max(0, Math.floor(8 * lum)) % CHARS.length]!
         }
       }
     }

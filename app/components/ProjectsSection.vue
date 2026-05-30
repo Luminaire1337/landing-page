@@ -26,7 +26,7 @@ const {
 onMounted(() => {
   const observer = new IntersectionObserver(
     async (entries) => {
-      if (entries[0].isIntersecting) {
+      if (entries[0]?.isIntersecting) {
         if (import.meta.dev) await new Promise((r) => setTimeout(r, 2000))
         execute()
         observer.disconnect()
