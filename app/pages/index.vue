@@ -26,7 +26,7 @@ function scrollToProjects() {
         <p class="text-sky-200/90 text-sm mt-6">software engineer</p>
         <nav class="flex gap-8 justify-center mt-8 text-xs text-sky-300/80">
           <a
-            href="https://github.com/Luminaire1337"
+            :href="`https://github.com/${config.public.githubUsername}`"
             target="_blank"
             rel="noopener"
             class="hover:text-sky-200 transition-colors duration-200"
