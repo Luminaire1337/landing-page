@@ -25,3 +25,6 @@ logs
 
 # Claude Code
 .claude
+
+# OG image source (may contain sensitive metadata)
+app/assets/og.png
