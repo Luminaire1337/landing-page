@@ -24,7 +24,7 @@ const scrollToProjects = () => {
           Luminaire<span class="text-sky-300">.</span>
         </h1>
         <p class="text-sky-200/90 text-sm mt-6">software engineer</p>
-        <nav class="flex gap-8 justify-center mt-8 text-xs text-sky-300/80">
+        <nav class="flex items-center gap-4 justify-center mt-8 text-xs text-sky-300/80">
           <a
             :href="`https://github.com/${config.public.githubUsername}`"
             target="_blank"
@@ -32,7 +32,6 @@ const scrollToProjects = () => {
             class="hover:text-sky-200 transition-colors duration-200"
             >github</a
           >
-          <span class="text-sky-300/20">·</span>
           <a
             v-if="emailHref"
             :href="emailHref"
@@ -47,7 +46,7 @@ const scrollToProjects = () => {
         @click="scrollToProjects"
       >
         <span class="text-[10px] tracking-[0.4em] uppercase">scroll</span>
-        <span class="animate-bounce text-base">↓</span>
+        <Icon name="lucide:arrow-down" class="animate-bounce size-4" />
       </button>
     </section>
 

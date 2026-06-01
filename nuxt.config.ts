@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/fonts', '@nuxt/eslint'],
+  modules: ['@nuxt/fonts', '@nuxt/eslint', '@nuxt/icon'],
   eslint: {
     config: {
       typescript: { strict: true },

@@ -69,7 +69,9 @@ const langColors: Record<string, string> = {
   <div ref="rootEl">
     <div class="mb-12 text-center">
       <h2 class="text-2xl font-semibold text-white tracking-tight">projects</h2>
-      <p class="text-sky-300/70 text-xs mt-1 tracking-[0.25em]">recent work · via github</p>
+      <p class="text-sky-300/70 text-xs mt-1 tracking-[0.25em] flex items-center justify-center gap-1">
+        recent work <Icon name="lucide:dot" class="size-4" /> via github
+      </p>
     </div>
 
     <!-- skeleton (idle = not yet in view, pending = fetching) -->
@@ -92,7 +94,7 @@ const langColors: Record<string, string> = {
         target="_blank"
         rel="noopener"
         class="underline underline-offset-4 hover:text-sky-300 transition-colors"
-        >view profile instead →</a
+        >view profile instead <Icon name="lucide:arrow-right" class="inline size-3 align-middle" /></a
       >
     </p>
 
@@ -132,8 +134,8 @@ const langColors: Record<string, string> = {
             />
             <span class="text-xs text-sky-300/50">{{ repo.language ?? '' }}</span>
           </div>
-          <span v-if="repo.stargazers_count > 0" class="text-xs text-sky-300/40">
-            ★ {{ repo.stargazers_count }}
+          <span v-if="repo.stargazers_count > 0" class="flex items-center gap-1 text-xs text-sky-300/40">
+            <Icon name="lucide:star" class="size-3 shrink-0" /> {{ repo.stargazers_count }}
           </span>
         </div>
       </a>
