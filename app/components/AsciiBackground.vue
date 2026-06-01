@@ -5,7 +5,6 @@ const scaleFactor = ref(1)
 
 let A = 1.0
 let B = 0.5
-let rafId: number
 let naturalW = 0
 let naturalH = 0
 
@@ -68,12 +67,11 @@ const calcScale = () => {
   scaleFactor.value = Math.max(sx, sy)
 }
 
-const loop = () => {
+useSharedRaf(() => {
   A += 0.005
   B += 0.003
   renderDonut()
-  rafId = requestAnimationFrame(loop)
-}
+})
 
 onMounted(() => {
   renderDonut()
@@ -85,12 +83,10 @@ onMounted(() => {
       calcScale()
     }
     window.addEventListener('resize', calcScale)
-    rafId = requestAnimationFrame(loop)
   })
 })
 
 onUnmounted(() => {
-  cancelAnimationFrame(rafId)
   window.removeEventListener('resize', calcScale)
 })
 </script>
@@ -102,7 +98,7 @@ onUnmounted(() => {
   >
     <pre
       ref="preEl"
-      class="select-none whitespace-pre leading-[1.4] text-[14px] text-sky-300 opacity-10 origin-center will-change-transform"
+      class="select-none whitespace-pre leading-[1.4] text-[14px] text-gh-accent opacity-[0.07] origin-center will-change-transform"
       :style="{ transform: `scale(${scaleFactor})` }"
       >{{ frame }}</pre
     >

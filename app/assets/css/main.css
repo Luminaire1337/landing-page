@@ -2,7 +2,14 @@
 
 @theme {
   --font-mono: 'JetBrains Mono', monospace;
-  --color-baby-blue: #89cff0;
+
+  /* GitHub Dark */
+  --color-gh-bg: #0d1117;
+  --color-gh-surface: #161b22;
+  --color-gh-border: #30363d;
+  --color-gh-text: #e6edf3;
+  --color-gh-muted: #8b949e;
+  --color-gh-accent: #58a6ff;
 }
 
 @layer base {
@@ -20,8 +27,8 @@
 
   body {
     font-family: 'JetBrains Mono', monospace;
-    background-color: #07070a;
-    color: #e2e8f0;
+    background-color: var(--color-gh-bg);
+    color: var(--color-gh-text);
     font-feature-settings:
       'calt' 1,
       'liga' 1;
