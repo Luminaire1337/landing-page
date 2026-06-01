@@ -19,8 +19,7 @@ useSharedRaf((now) => {
     const fps = (frameCount * 1000) / elapsed
     if (fps > maxFps) maxFps = fps
     const load = Math.max(0, 1 - fps / maxFps)
-    const wave = 0.04 + 0.03 * Math.sin(now * 0.001) + 0.02 * Math.sin(now * 0.0007 + 1)
-    cpu.value = Math.round(Math.max(1, Math.min(99, (load + wave) * 100)))
+    cpu.value = Math.round(Math.min(99, load * 100))
     frameCount = 0
     fpsWindowStart = now
   }
