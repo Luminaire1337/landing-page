@@ -34,7 +34,7 @@ pnpm format     # Prettier format (writes in place)
 | Token | Value | Usage |
 |---|---|---|
 | `--color-gh-bg` | `#0d1117` | `bg-gh-bg`, `text-gh-bg` |
-| `--color-gh-surface` | `#161b22` | cards, statusbar |
+| `--color-gh-surface` | `#161b22` | cards |
 | `--color-gh-border` | `#30363d` | borders, muted brackets |
 | `--color-gh-text` | `#e6edf3` | primary text |
 | `--color-gh-muted` | `#8b949e` | secondary text |
@@ -55,7 +55,7 @@ vite: {
 
 **ASCII donut** (`AsciiBackground.vue`) renders a rotating 3D torus using the classic Andy Sloane algorithm on a 120×40 character grid. Scale is calculated on mount from natural `<pre>` dimensions to cover the viewport (overflow hidden). Animation runs via `useSharedRaf`.
 
-**`useSharedRaf`** (`app/composables/useSharedRaf.ts`) — shared `requestAnimationFrame` loop. Multiple components subscribe via `useSharedRaf(cb)` and share one rAF tick. Auto-starts on first subscriber, auto-stops when last one unmounts. Used by `AsciiBackground.vue` (donut) and `index.vue` (FPS-based CPU meter).
+**`useSharedRaf`** (`app/composables/useSharedRaf.ts`) — shared `requestAnimationFrame` loop. Multiple components subscribe via `useSharedRaf(cb)` and share one rAF tick. Auto-starts on first subscriber, auto-stops when last one unmounts. Used by `AsciiBackground.vue` (donut).
 
 **ESLint / Prettier** — `eslint.config.mjs` wraps the Nuxt-generated flat config with `eslint-config-prettier` (kills style rules) and three custom rules:
 
